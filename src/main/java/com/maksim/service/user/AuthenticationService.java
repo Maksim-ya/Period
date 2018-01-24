@@ -19,7 +19,7 @@ public class AuthenticationService {
 		// getting the connection from DBUtils
 		final Connection connection = DBConnection.getConnection();
 
-		String sql_query = "SELECT USERID, NAME, ADDRESS FROM USER WHERE USERNAME = ? AND PASSWORD = ?";
+		String sql_query = "SELECT USERID, USERNAME, ADDRESS FROM USER WHERE USERNAME = ? AND PASSWORD = ?";
 
 		User user = null;
 
@@ -41,7 +41,7 @@ public class AuthenticationService {
 				// setting the all attributes to object from database
 				user.setUserId(rs.getInt("userId"));
 				user.setUserName(userName);
-				user.setName(rs.getString("name"));
+				user.setName(rs.getString("userName"));
 				user.setAddress(rs.getString("address"));
 				user.setValidUser(true);
 

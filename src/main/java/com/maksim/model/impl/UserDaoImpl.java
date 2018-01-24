@@ -9,6 +9,12 @@ import java.util.List;
 public class UserDaoImpl implements UserDAO {
 
 
+    private final static UserDaoImpl userDao = new UserDaoImpl();
+
+    public UserDaoImpl() {
+    }
+
+    static UserDaoImpl getInstance(){return userDao;}
 
     public void addUser(User user) {
 
