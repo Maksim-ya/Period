@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-public class AuthenticationService {
+public class LoginService {
 
 	public User validateUser(String userName, String password) {
 
@@ -19,7 +19,7 @@ public class AuthenticationService {
 		// getting the connection from DBUtils
 		final Connection connection = DBConnection.getConnection();
 
-		String sql_query = "SELECT USERID, USERNAME, ADDRESS FROM USER WHERE USERNAME = ? AND PASSWORD = ?";
+		String sql_query = "SELECT USERID, FULLNAME, ADDRESS FROM USER WHERE USERNAME = ? AND PASSWORD = ?";
 
 		User user = null;
 
@@ -41,7 +41,7 @@ public class AuthenticationService {
 				// setting the all attributes to object from database
 				user.setUserId(rs.getInt("userId"));
 				user.setUserName(userName);
-				user.setName(rs.getString("userName"));
+				user.setFullName(rs.getString("fullName"));
 				user.setAddress(rs.getString("address"));
 				user.setValidUser(true);
 

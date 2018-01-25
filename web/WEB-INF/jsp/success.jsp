@@ -22,7 +22,7 @@
 			
 			user = (User)session.getAttribute("user");
 			
-			name = user.getName();
+			name = user.getFullName();
 		}
 	
 	%>

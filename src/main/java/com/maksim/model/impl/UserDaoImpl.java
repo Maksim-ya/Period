@@ -1,9 +1,13 @@
 package com.maksim.model.impl;
 
 import com.maksim.domain.User;
+import com.maksim.model.connection.DBConnection;
 import com.maksim.model.dao.UserDAO;
 
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserDaoImpl implements UserDAO {
@@ -16,9 +20,26 @@ public class UserDaoImpl implements UserDAO {
 
     static UserDaoImpl getInstance(){return userDao;}
 
-    public void addUser(User user) {
+    public boolean addUser(User user) {
+        Connection dbConnection =  DBConnection.getConnection();
 
+        try {
+            PreparedStatement ps = dbConnection.prepareStatement(
+                    "INSERT INTO user VALUES (?,?,?,?,?)");
+            ps.setString(2, user.getUserName());
+            ps.setString(3, user.getPassword());
+            ps.setString(4, user.getFullName());
+            ps.setString(5, user.getAddress());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+
+        } finally {
+
+        }
+        return false;
     }
+
 
     public void updateUser(User user) {
 

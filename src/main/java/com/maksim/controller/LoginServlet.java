@@ -1,7 +1,7 @@
 package com.maksim.controller;
 
 import com.maksim.domain.User;
-import com.maksim.service.user.AuthenticationService;
+import com.maksim.service.user.LoginService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,10 +29,10 @@ public class LoginServlet extends HttpServlet {
 		if((userName != null ) && (password != null )) {
 			
 			// defining the object for AuthenticationService
-			AuthenticationService authenticationServiceservice = new AuthenticationService();
+			LoginService loginServiceservice = new LoginService();
 			
 			// validating the user input
-			User user = authenticationServiceservice.validateUser(userName, password);
+			User user = loginServiceservice.validateUser(userName, password);
 			
 			// dispatching the result based on the outcome 
 			if(user != null && user.isValidUser()) {

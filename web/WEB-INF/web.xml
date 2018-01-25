@@ -19,6 +19,16 @@
         <url-pattern>/authenticate</url-pattern>
     </servlet-mapping>
 
+   <servlet>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>com.maksim.controller.RegistrationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+
     <resource-ref>
         <res-ref-name>jdbc/period</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>

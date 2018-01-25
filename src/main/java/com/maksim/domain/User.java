@@ -7,7 +7,7 @@ public class User {
 	private int userId;
 	private String userName;
 	private String password;
-	private String name;
+	private String fullName;
 	private String address;
 	private String role;
 
@@ -38,12 +38,12 @@ public class User {
 		this.password = password;
 	}
 
-	public String getName() {
-		return name;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getAddress() {
