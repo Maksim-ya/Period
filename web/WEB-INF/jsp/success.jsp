@@ -30,7 +30,9 @@
 	<h1>Hello <%=name %>, Welcome to Application</h1>
 
 	<br/>
-	
+	<form action="logout">
+		<input type="submit" value="Logout">
+	</form>
 	
 </body>
 </html>
