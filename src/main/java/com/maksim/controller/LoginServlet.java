@@ -29,10 +29,10 @@ public class LoginServlet extends HttpServlet {
 		if((userName != null ) && (password != null )) {
 			
 			// defining the object for AuthenticationService
-			LoginService loginServiceservice = new LoginService();
+			LoginService loginService = new LoginService();
 			
 			// validating the user input
-			User user = loginServiceservice.validateUser(userName, password);
+			User user = loginService.validateUser(userName, password);
 			
 			// dispatching the result based on the outcome 
 			if(user != null && user.isValidUser()) {

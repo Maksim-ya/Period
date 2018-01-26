@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class RegistrationServlet extends HttpServlet {
@@ -55,15 +56,16 @@ public class RegistrationServlet extends HttpServlet {
         user.setAddress(address);
 
         if(service.addUser(user)) {
-
+            HttpSession session = request.getSession();
             // Dispatching Success Page
-            RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/success.jsp");
+            session.setAttribute("user", user);
             dispatcher.forward(request, response);
 
         } else {
 
             // Dispatching Error Page
-            RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/error.jsp");
             dispatcher.forward(request, response);
 
         }

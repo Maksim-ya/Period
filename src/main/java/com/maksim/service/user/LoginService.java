@@ -25,13 +25,13 @@ public class LoginService {
 
 		try {
 
-			PreparedStatement stmt = connection.prepareStatement(sql_query);
+			PreparedStatement statament = connection.prepareStatement(sql_query);
 
-			stmt.setString(1, userName);
-			stmt.setString(2, password);
+			statament.setString(1, userName);
+			statament.setString(2, password);
 
 			// executing the query
-			ResultSet rs = stmt.executeQuery();
+			ResultSet rs = statament.executeQuery();
 
 			while(rs.next()) {
 

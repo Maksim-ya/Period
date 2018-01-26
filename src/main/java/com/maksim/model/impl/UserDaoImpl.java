@@ -25,11 +25,11 @@ public class UserDaoImpl implements UserDAO {
 
         try {
             PreparedStatement ps = dbConnection.prepareStatement(
-                    "INSERT INTO user VALUES (?,?,?,?,?)");
-            ps.setString(2, user.getUserName());
-            ps.setString(3, user.getPassword());
-            ps.setString(4, user.getFullName());
-            ps.setString(5, user.getAddress());
+                    "INSERT INTO user(userName, password,fullName, address) VALUES (?,?,?,?)");
+            ps.setString(1, user.getUserName());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getFullName());
+            ps.setString(4, user.getAddress());
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {

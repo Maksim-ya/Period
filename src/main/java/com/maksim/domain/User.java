@@ -11,8 +11,10 @@ public class User {
 	private String address;
 	private String role;
 
-
 	private boolean validUser;
+
+	public User() {
+	}
 
 	public int getUserId() {
 		return userId;
